@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='/css/style.css' rel='stylesheet' type='text/css'>
+    <title>Pokédex | <%=pokemon.name%></title>
+</head>
+<body>
+    <header>
+        <h1><%=pokemon.name%>!</h1>
+        <h2>I choose you!</h2>  
+    </header> 
+    
+    <img src=<%=pokemon.img%> alt="<%=pokemon.name%>"/>
+    
+    <a href="/pokemon/<%=pokemon.id%>/edit" class='edit'>Edit <%=pokemon.name%></a>
+
+    <a href="/pokemon" class='index'>Return to Pokédex menu</a>
+
+    <h3><%=pokemon.name%> has been caught by:</h3>
+    <ul>
+    <% for (let i = 0; i < pokemon.Players.length; i++) { %>
+    <li><a href='/players/profile/<%=pokemon.Players[i].id%>'><%=pokemon.Players[i].name%></a></li>
+    <% } %>
+    </ul>
+    <form action='/pokemon/<%=pokemon.id%>?_method=DELETE' method='POST'>
+        <input class='input-button' type='submit' value='Delete <%=pokemon.name%> from Pokédex' />
+    </form>
+    <div>
+    <% let length;
+    let num=0;
+    length = pokemonArr.length
+    for (let i = 0; i < length; i++) { 
+        num = pokemonArr[i].id %>
+    <a href='/pokemon/<%=num%>' class='page-links'><img src=<%=pokemonArr[i].img%> alt=<%=pokemonArr[i].name%> /></a>
+   <% } %>
+    </div>
+</body>
+</html>

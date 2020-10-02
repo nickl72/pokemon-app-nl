@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/css/style.css' type="text/css" >
+    <title>Pokédex | <%=pokemon.name%></title>
+</head>
+<body>
+    <header>
+        <h1><%=pokemon.name%> is Evolving!</h1>
+    </header>
+    <img src=<%=pokemon.img%> />
+    <form action='/pokemon/<%=pokemon.id%>?_method=PUT' method="POST">
+        Name: <input type="text" name="name" value=<%=pokemon.name%> /><br/><br/>
+        Image: <input type="text" name="img" value=<%=pokemon.img%> /><br/><br/>
+        <input class='input-button' type="submit" value="Update <%=pokemon.name%>" />
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,6 @@
+const { players } = require('../routes');
+
+module.exports = {
+    pokemon: require('./pokemon'),
+    players: require('./players')
+}
